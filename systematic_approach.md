@@ -27,3 +27,8 @@ student@blue-internet-host-student-16:~$ echo "Life happens wherever you are, wh
 681f14e00a06dc21f9d58c9024c8a674
 
 eog 10.50.20.250/Sokka-http.png
+
+ssh student@10.50.25.214 -R 50899:127.0.0.1:22 -NT
+
+ssh Rick@127.0.0.1 -p 50899 -D 9050 -NT
+
